@@ -45,7 +45,8 @@ namespace ConferenceTracker.Controllers
             return View();
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrators")]
         public IActionResult Create([Bind("Id, FirstName, LastName, Description, EmailAddress, PhoneNumber")]Speaker speaker)
         {
