@@ -41,5 +41,6 @@ namespace ConferenceTracker.Repositories
             context.Speakers.Update(speaker);
             context.SaveChanges();
         }
+
     }
 }
