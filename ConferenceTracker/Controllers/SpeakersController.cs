@@ -3,6 +3,7 @@ using ConferenceTracker.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
 
 namespace ConferenceTracker.Controllers
 {
@@ -46,7 +47,7 @@ namespace ConferenceTracker.Controllers
 
         [HttpPost, ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrators")]
-        public IActionResult Create(Speaker speaker)
+        public IActionResult Create([Bind("Id, FirstName, LastName, Description, EmailAddress, PhoneNumber")]Speaker speaker)
         {
             if (ModelState.IsValid)
             {

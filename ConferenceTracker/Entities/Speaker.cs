@@ -24,9 +24,8 @@ namespace ConferenceTracker.Entities
         {
             List<ValidationResult> validationResults = new List<ValidationResult>();
 
-            const string emailSuffix = "TechnologyLiveConference.com";
 
-            if (emailSuffix.Contains("TechnologyLiveConference.com", StringComparison.OrdinalIgnoreCase) && EmailAddress != null)
+            if (EmailAddress.EndsWith("TechnologyLiveConference.com", StringComparison.InvariantCultureIgnoreCase) && EmailAddress != null)
             {
                 validationResults.Add(new ValidationResult("Technology Live Conference staff should not use their conference email addresses."));
             }
